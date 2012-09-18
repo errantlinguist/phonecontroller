@@ -1,0 +1,20 @@
+SnomPhoneController
+An applet for graphically controlling a <a href="http://www.snom.com/">snom VoIP phone</a>.
+------------------------------------------------------------------------
+VERSION: 2012-09-05
+AUTHOR: Todd Shore
+WEBSITE: https://github.com/errantlinguist/phonecontroller
+
+LICENSING:
+Copyright 2012 Todd Shore. Distributed under the Apache License 2.0 -- See the files "NOTICE" and "LICENSE".
+
+REQUIREMENTS:
+- Java 1.6+
+- Scala 2.9.2+
+
+NOTES:
+This project is currently in an alpha state and is not entirely functional.
+
+TODO:
+- Fix general swing GUI bugs
+- Fix key listening bugs
