@@ -6,17 +6,17 @@
  * modification, are permitted provided that the following conditions
  * are met:
  * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+ *	notice, this list of conditions and the following disclaimer.
  * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
+ *	notice, this list of conditions and the following disclaimer in the
+ *	documentation and/or other materials provided with the distribution.
  * 3. All advertising materials mentioning features or use of this software
- *    must display the following acknowledgement:
+ *	must display the following acknowledgement:
  *	This product includes software developed by the University of
  *	California, Berkeley and its contributors.
  * 4. Neither the name of the University nor the names of its contributors
- *    may be used to endorse or promote products derived from this software
- *    without specific prior written permission.
+ *	may be used to endorse or promote products derived from this software
+ *	without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -34,62 +34,62 @@
  */
 
 /**
- *  SYSEXITS.H -- Exit status codes for system programs.
+ *  SysExits.scala -- Exit status codes for system programs.
  *
- *  <P>Converted from a C header file to a Scala object from a similar Java interface.
+ *  <p>Converted from a C header file to a Scala object from a similar Java interface.</p>
  *
- *	<P>This include file attempts to categorize possible error
+ *	<p>This include file attempts to categorize possible error
  *	exit statuses for system programs, notably delivermail
- *	and the Berkeley network.
+ *	and the Berkeley network.</p>
  *
- *	<P>Error numbers begin at EX__BASE to reduce the possibility of
+ *	<p>Error numbers begin at EX__BASE to reduce the possibility of
  *	clashing with other exit statuses that random programs may
  *	already return.  The meaning of the codes is approximately
- *	as follows:
+ *	as follows:</p>
  *
- *	<P>EX_USAGE -- The command was used incorrectly, e.g., with
+ *	<p>EX_USAGE -- The command was used incorrectly, e.g., with
  *		the wrong number of arguments, a bad flag, a bad
- *		syntax in a parameter, or whatever.
- *	<P>EX_DATAERR -- The input data was incorrect in some way.
+ *		syntax in a parameter, or whatever.</p>
+ *	<p>EX_DATAERR -- The input data was incorrect in some way.
  *		This should only be used for user's data & not
- *		system files.
- *	<P>EX_NOINPUT -- An input file (not a system file) did not
+ *		system files.</p>
+ *	<p>EX_NOINPUT -- An input file (not a system file) did not
  *		exist or was not readable.  This could also include
  *		errors like "No message" to a mailer (if it cared
- *		to catch it).
- *	<P>EX_NOUSER -- The user specified did not exist.  This might
- *		be used for mail addresses or remote logins.
- *	<P>EX_NOHOST -- The host specified did not exist.  This is used
- *		in mail addresses or network requests.
- *	<P>EX_UNAVAILABLE -- A service is unavailable.  This can occur
+ *		to catch it).</p>
+ *	<p>EX_NOUSER -- The user specified did not exist.  This might
+ *		be used for mail addresses or remote logins.</p>
+ *	<p>EX_NOHOST -- The host specified did not exist.  This is used
+ *		in mail addresses or network requests.</p>
+ *	<p>EX_UNAVAILABLE -- A service is unavailable.  This can occur
  *		if a support program or file does not exist.  This
  *		can also be used as a catchall message when something
  *		you wanted to do doesn't work, but you don't know
- *		why.
- *	<P>EX_SOFTWARE -- An internal software error has been detected.
+ *		why.</p>
+ *	<p>EX_SOFTWARE -- An internal software error has been detected.
  *		This should be limited to non-operating system related
- *		errors as much as possible.
- *	<P>EX_OSERR -- An operating system error has been detected.
+ *		errors as much as possible.</p>
+ *	<p>EX_OSERR -- An operating system error has been detected.</p>
  *		This is intended to be used for such things as "cannot
  *		fork", "cannot create pipe", or the like.  It includes
  *		things like getuid returning a user that does not
- *		exist in the passwd file.
- *	<P>EX_OSFILE -- Some system file (e.g., /etc/passwd, /etc/utmp,
+ *		exist in the passwd file.</p>
+ *	<p>EX_OSFILE -- Some system file (e.g., /etc/passwd, /etc/utmp,
  *		etc.) does not exist, cannot be opened, or has some
- *		sort of error (e.g., syntax error).
- *	<P>EX_CANTCREAT -- A (user specified) output file cannot be
- *		created.
- *	<P>EX_IOERR -- An error occurred while doing IO on some file.
- *	<P>EX_TEMPFAIL -- temporary failure, indicating something that
+ *		sort of error (e.g., syntax error).</p>
+ *	<p>EX_CANTCREAT -- A (user specified) output file cannot be
+ *		created.</p>
+ *	<p>EX_IOERR -- An error occurred while doing IO on some file.</p>
+ *	<p>EX_TEMPFAIL -- temporary failure, indicating something that
  *		is not really an error.  In sendmail, this means
  *		that a mailer (e.g.) could not create a connection,
- *		and the request should be reattempted later.
- *	<P>EX_PROTOCOL -- the remote system returned something that
- *		was "not possible" during a protocol exchange.
- *	<P>EX_NOPERM -- You did not have sufficient permission to
+ *		and the request should be reattempted later.</p>
+ *	<p>EX_PROTOCOL -- the remote system returned something that
+ *		was "not possible" during a protocol exchange.</p>
+ *	<p>EX_NOPERM -- You did not have sufficient permission to
  *		perform the operation.  This is not intended for
  *		file system problems, which should use NOINPUT or
- *		CANTCREAT, but rather for higher level permissions.
+ *		CANTCREAT, but rather for higher level permissions.</p>
  */
 
 package edu.berkeley.cs

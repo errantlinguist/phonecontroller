@@ -1,20 +1,20 @@
 /*
-       Licensed to the Apache Software Foundation (ASF) under one
-       or more contributor license agreements.  See the NOTICE file
-       distributed with this work for additional information
-       regarding copyright ownership.  The ASF licenses this file
-       to you under the Apache License, Version 2.0 (the
-       "License"); you may not use this file except in compliance
-       with the License.  You may obtain a copy of the License at
-
-         http://www.apache.org/licenses/LICENSE-2.0
-
-       Unless required by applicable law or agreed to in writing,
-       software distributed under the License is distributed on an
-       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-       KIND, either express or implied.  See the License for the
-       specific language governing permissions and limitations
-       under the License.
+ *	Licensed to the Apache Software Foundation (ASF) under one
+ *	or more contributor license agreements.  See the NOTICE file
+ *	distributed with this work for additional information
+ *	regarding copyright ownership.  The ASF licenses this file
+ *	to you under the Apache License, Version 2.0 (the
+ *	"License"); you may not use this file except in compliance
+ *	with the License.  You may obtain a copy of the License at
+ *
+ *		http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *	Unless required by applicable law or agreed to in writing,
+ *	software distributed under the License is distributed on an
+ *	"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *	KIND, either express or implied.  See the License for the
+ *	specific language governing permissions and limitations
+ *	under the License.
  */
 package com.errantlinguist.snom.gui
 
@@ -23,7 +23,7 @@ import com.errantlinguist.snom.PhoneSettingsListener
 import com.errantlinguist.snom.PhoneSettings
 
 /**
- * @author <a href="mailto:todd.shore@excelsisnet.com">Todd Shore</a>
+ * @author Todd Shore
  * @version 03.09.2012
  * @since 03.09.2012
  *
@@ -53,21 +53,21 @@ class SettingsFrame(private val settingsListener : PhoneSettingsListener, title0
 		}
 	}
 	
-    private lazy val phoneHostnameField = new TextField(SettingsFrame.PhoneHostnameFieldColumns)
+	private lazy val phoneHostnameField = new TextField(SettingsFrame.PhoneHostnameFieldColumns)
 	
-    contents = new BoxPanel(Orientation.Vertical){
-        contents += createPhoneHostnamePanel()
-        contents += createEncodingPanel()
-        contents += createCloseButtonPanel()
-        
-        focusable = true
-    }
-    
-    override def notifyNewPhoneSettings(newSettings : PhoneSettings) {
-    	currentSettings = newSettings
-    	updateDisplayedSettings()
-    	
-    }
+	contents = new BoxPanel(Orientation.Vertical){
+		contents += createPhoneHostnamePanel()
+		contents += createEncodingPanel()
+		contents += createCloseButtonPanel()
+		
+		focusable = true
+	}
+	
+	override def notifyNewPhoneSettings(newSettings : PhoneSettings) {
+		currentSettings = newSettings
+		updateDisplayedSettings()
+		
+	}
 	
 	private def createPhoneHostnamePanel() : FlowPanel = {
 		new FlowPanel {
@@ -93,20 +93,20 @@ class SettingsFrame(private val settingsListener : PhoneSettingsListener, title0
 				if(!isValidHostname()) {
 					Dialog.showMessage(this, "Please enter a valid (i.e. non-empty) hostname.", "Invalid hostname", Dialog.Message.Error)
 				} else if (!isValidEncoding()) {
-                    Dialog.showMessage(this, "Please enter a valid (i.e. non-empty) encoding.", "Invalid encoding", Dialog.Message.Error)
-				    
+					Dialog.showMessage(this, "Please enter a valid (i.e. non-empty) encoding.", "Invalid encoding", Dialog.Message.Error)
+					
 				} else {
-                    settingsListener.notifyNewPhoneSettings(newSettings)
-                    newSettings.store()
-                    dispose()
+					settingsListener.notifyNewPhoneSettings(newSettings)
+					newSettings.store()
+					dispose()
 				}
 				
 				
 				
 			})
-            contents += new Button(Action("Cancel"){
-                dispose()
-            })
+			contents += new Button(Action("Cancel"){
+				dispose()
+			})
 		}
 	}
 	
@@ -116,24 +116,30 @@ class SettingsFrame(private val settingsListener : PhoneSettingsListener, title0
 	}
 	
 	private def updateDisplayedSettings() {
-	    phoneHostnameField.text = currentSettings.phoneHostname
-        encodingBox.selection.item = currentSettings.encoding
+		phoneHostnameField.text = currentSettings.phoneHostname
+		encodingBox.selection.item = currentSettings.encoding
 	}
 	
 	private def isValidHostname() : Boolean = {
 		(phoneHostnameField.text != null
-		    && !phoneHostnameField.text.matches("\\s*")
-		    )
+			&& !phoneHostnameField.text.matches("\\s*")
+			)
 	}
 	
    private def isValidEncoding() : Boolean = {
-	       (encodingBox.selection.item != null
-            && !encodingBox.selection.item.matches("\\s*"))
-    }
+		   (encodingBox.selection.item != null
+			&& !encodingBox.selection.item.matches("\\s*"))
+	}
 
 }
 
+/**
+ * @author Todd Shore
+ * @version 03.09.2012
+ * @since 03.09.2012
+ *
+ */
 private object SettingsFrame {
 	
-    private val PhoneHostnameFieldColumns = 15
+	private val PhoneHostnameFieldColumns = 15
 }
