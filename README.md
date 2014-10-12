@@ -1,6 +1,6 @@
 PhoneController
 ================================================================================
-An applet for graphically controlling a [snom VoIP phone](http://www.snom.com/).
+A GUI for controling [snom VoIP phones](http://www.snom.com/).
 
 * **Version:** 2012-09-05
 * **Author:** Todd Shore
